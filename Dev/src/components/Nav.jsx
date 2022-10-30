@@ -27,7 +27,7 @@ const styles={
                 mx:'20px',
         },
         tabs:{
-            mx:'20px',
+            p:'10px 20px',
             cursor:'pointer',
             className:'tab_nav',
         },
