@@ -1,0 +1,6 @@
+.box{
+    border:2px solid grey;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
