@@ -1,9 +1,15 @@
 .App {
   text-align: center;
   color: #fff;
+  box-sizing: border-box;
+  z-index: -10;
+  /* background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif);
+  background-size: 100%; */
 }
 .App *{
-  box-sizing: border-box;
+  border:'1px solid black'
 }
 
 .tab_nav:hover{
@@ -12,4 +18,98 @@
   border:1px solid skyblue;
   box-sizing: border-box;
   
+}
+.bgTester{
+  background:radial-gradient(circle farthest-side at bottom right, #220040, #29023f, #37034e, #6c0570)
+}
+.shadowOnHover:hover{
+  box-shadow: 5px 5px 10px 2px #000000;
+}
+
+.req .light_skyblue_button{
+    background-color: #75b4d8;
+    color:#000000;
+}
+.req .light_skyblue_button:hover, .light_skyblue_button:active{
+  background-color: #0493e600;
+  color: #fff;
+}
+.req .dark_skyblue_button{
+  background-color: #0493e6;
+  color: #fff;
+}
+.req .dark_skyblue_button:hover, .light_skyblue_button:active{
+  background-color: #0493e600;
+
+}
+
+/* green 3rd level */
+@media only screen and (min-width:250px) and (max-width:750px) {
+  .headSlider {
+    margin-bottom: 45px;
+    font-size: 2rem;
+    margin-left: -55px;
+    width: 750px;
+    height: 75px;
+  }
+  
+}
+.iconName{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background-color: rgba(199, 223, 247, 0.342);
+  backdrop-filter: blur(2px);
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  animation: normal slit-in-vertical 0.3s ease;
+}
+.iconExit{
+  animation: normal slit-out-vertical 0.3s ease;
+}
+.icontext{
+  font-size: 18px;
+  color: rgb(76, 1, 95);
+  font-weight:700;
+}
+
+@keyframes slit-out-vertical {
+  0% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  
+}
+@keyframes slit-in-vertical {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+
+}
+
+.resume .button{
+   border: 1px solid;
+   padding: 7px 14px;
+   border-radius: 10px;
+
+}
+
+.resume .button:hover{
+  background-color: #00a2ff52;
+}
+
+.resume .button:active{
+  background-color: #f5f5f552;
 }

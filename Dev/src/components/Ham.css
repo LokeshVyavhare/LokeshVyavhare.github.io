@@ -41,3 +41,8 @@
     border: 1px solid grey;
     border-radius: 50%;
 }
+
+.icon{
+    
+    background-size: cover;
+}

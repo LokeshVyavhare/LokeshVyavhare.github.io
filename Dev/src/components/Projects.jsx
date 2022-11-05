@@ -1,19 +1,10 @@
 import { Box, Grid, Heading, Flex, Text, Image, Tag, TagLabel } from '@chakra-ui/react'
 import {data} from '../data/Projects'
 import { ProjectCard } from './ProjectCard';
-
-
-const color = {
-    bg_color1: "#eee",
-    bg_color2: "#fff",
-    bg_color3: "#ddd",
-    color1: "#000",
-    color2: "grey",
-    color3: "#fff",
-    color4: "#ddd",
-    color5: "#333",
-
-};
+import { Colors } from '../styles/colors';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { AddRef } from '../Store/Scroll/scroll.action';
 
 const style = {
     lvl0: {
@@ -23,7 +14,7 @@ const style = {
     },
     lvl1: {
         w: '100%',
-        bg: 'radial-gradient(circle at 50% 50%, #dddddd, #dedede, #e0e0e0, #e3e3e3, #e7e7e7, #ebebeb, #efefef, #f3f3f3, #f7f7f7, #fafafa, #fcfcfc, #fdfdfd)'    },
+    },
 
     lvl2: {
         p: ["5px",'30px 20px'],
@@ -32,10 +23,8 @@ const style = {
 
     },
     heading: {
-        // fontFamily: "'Silkscreen', cursive",
-        textDecoration:"underline",
-        fontWeight: '1000',
-        mb:'50px'
+        mb:'50px',
+        textAlign:'center'
     },
     grid:{
        gap:'2%'
@@ -43,13 +32,15 @@ const style = {
 }
 
 export const Projects = () => {
-    return <Box {...style.lvl0}>
+    const color = Colors();
+    const ThisRef = useRef(null);
+    const dispatch = useDispatch();
+    dispatch(AddRef({key:'projectScroll', ref:ThisRef}))
+    return <Box {...style.lvl0} ref={ThisRef}>
 
         <Box {...style.lvl1}>
             <Box {...style.lvl2} >
-                <Heading {...style.heading}>
-                    My Projects
-                </Heading>
+            <Heading {...style.heading} color={color.ch}>MY PROJECTS</Heading>
 
                 <Grid {...style.grid}>
                     {data.map((i, e)=>

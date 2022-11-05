@@ -1,12 +1,13 @@
-import { Box, Grid, Heading, Flex, Text, Image, Tag, TagLabel, Button, Icon, position } from '@chakra-ui/react'
+import { Box, Grid, Heading, Flex, Text, Image, Tag, TagLabel, Button, Icon, position, color } from '@chakra-ui/react'
 import { BsGithub, BsLink45Deg } from 'react-icons/bs';
+import { Colors } from '../styles/colors';
 
 
 const style = {
     lvl0: {
         p: '15px',
         boxShadow: 'lg',
-        bg: 'rgb(245,245,245)',
+        borderRadius:'25px'
     },
     lvl1: {
         direction: ['column-reverse', 'column-reverse', 'column-reverse', 'row'],
@@ -67,15 +68,16 @@ const style = {
     },
     netButton: {
         bg: '#05a6f3',
-        boxShadow: '0px 0px 10px 2px grey',
+        boxShadow: '0px 0px 10px 2px #80808080',
         w: ['200px', '170px']
 
     }
 }
 
 export const ProjectCard = ({ data, id }) => {
+    const color = Colors();
     const i = data;
-    return <Box {...style.lvl0} >
+    return <Box {...style.lvl0} bg={color.bg2} data-aos={+id%2===0?'fade-left':'fade-right' }  data-aos-anchor-placement="top-center">
         <Flex {...style.lvl1}>
 
             <Box {...style.imgBox}>
@@ -88,7 +90,7 @@ export const ProjectCard = ({ data, id }) => {
 
             <Flex {...style.descBox}>
 
-                <Text {...style.title}>{i.title}</Text>
+                <Text {...style.title} color={color.cs}>{i.title}</Text>
 
                 <Flex {...style.genStack}>
                     {i.genStack.map((j, f) => <Tag key={f + id + 'genstack'} mr={["5px", "7px", "10px", '15px']} mb={["7px", "10px", "12px", '15px']} size={["md", "md", 'lg']} bg='#05a6f3' color='#fff' borderRadius='10px'>

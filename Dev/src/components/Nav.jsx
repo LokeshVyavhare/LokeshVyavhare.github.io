@@ -7,6 +7,9 @@ import {
 import { Ham } from './Hamburger';
 import {ThemeContext} from '../contexts/ThemeContext';
 import { useContext } from 'react';
+import { ScrollTo } from '../Store/Scroll/scroll.action';
+import { useDispatch } from 'react-redux';
+
 
 
 const styles={
@@ -58,18 +61,21 @@ const styles={
 
 export const Nav = () => {
     const ThemeToken = useContext(ThemeContext);
+    const dispatch = useDispatch();
+    
 
     const {theme, toggleTheme} = ThemeToken;
 
     return<Box {...styles.main}>
 
         <Flex  {...styles.nav0}>
-            <Flex align='center'><Image w='40px' h="40px" src="https://img.icons8.com/doodle/2x/cottage.png" /><Text {...styles.tabs}>Home</Text></Flex>
+        {/* <Image w='40px' h="40px" src="https://img.icons8.com/doodle/2x/cottage.png" /> */}
+            <Flex align='center'><Text {...styles.tabs}  onClick={()=>{dispatch(ScrollTo('heroImageScroll'))}}>LOKESH VYAVHARE</Text></Flex>
             <Flex {...styles.nav1}>
             
-            <Text {...styles.tabs}>About Me</Text>
-            <Text {...styles.tabs}>Skills</Text>
-            <Text {...styles.tabs}>Projects</Text>
+            <Text {...styles.tabs} onClick={()=>{dispatch(ScrollTo('aboutScroll'))}}>About Me</Text>
+            <Text {...styles.tabs} onClick={()=>{dispatch(ScrollTo('projectScroll'))}}>Projects</Text>
+            <Text {...styles.tabs} onClick={()=>{dispatch(ScrollTo('skillsScroll'))}}>Skills</Text>
             <Text {...styles.tabs}>Contact</Text>
             <Text {...styles.tabs}>Resume</Text>
             </Flex>
@@ -79,7 +85,7 @@ export const Nav = () => {
 
                 <Box title="Change Theme" onClick={()=>{toggleTheme()}}>{theme?<Image {...styles.theme_button}src="https://img.icons8.com/doodle/2x/sun.png" alt='Light' />:<Image {...styles.theme_button} src="https://img.icons8.com/doodle/344/bright-moon--v1.png" alt='dark' />}</Box>
                 
-                <Image {...styles.theme_button} {...styles.profile} src="https://img.icons8.com/doodle/2x/user.png" alt='Light' />
+                {/* <Image {...styles.theme_button} {...styles.profile} src="https://img.icons8.com/doodle/2x/user.png" alt='Light' /> */}
 
             </Flex>
 
